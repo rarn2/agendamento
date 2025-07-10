@@ -170,8 +170,22 @@ const Agendamentos = () => {
     setSearchTermPaciente(agendamento.paciente.nome);
     setPacienteSelecionadoNome(agendamento.paciente.nome);
     setSugestoesPacientes([]);
-    // carregarDados(); // REMOVIDO: A atualização da lista será feita pelo useEffect no filter ou por um novo agendamento
     toast.info(`Agendamento de ${agendamento.paciente.nome} marcado para reagendamento. Preencha a nova data e hora.`);
+  };
+
+  const handleDuplicate = (agendamento) => {
+    setForm({
+      id: null, // Novo agendamento
+      pacienteId: agendamento.paciente.id,
+      localId: agendamento.local.id,
+      dataHora: '', // Limpa a data para nova seleção
+      tipoConsulta: agendamento.tipoConsulta,
+      status: 'Pendente', // Novo agendamento começa como Pendente
+    });
+    setSearchTermPaciente(agendamento.paciente.nome);
+    setPacienteSelecionadoNome(agendamento.paciente.nome);
+    setSugestoesPacientes([]);
+    toast.info(`Agendamento de ${agendamento.paciente.nome} duplicado. Altere a data/hora e salve.`);
   };
 
   const handleWhatsAppReminder = (agendamento) => {
@@ -448,6 +462,15 @@ const Agendamentos = () => {
                 cursor: 'pointer',
                 fontSize: '0.85rem'
               }}>Reagendar</button>
+              <button onClick={() => handleDuplicate(ag)} style={{
+                padding: '8px 12px',
+                backgroundColor: '#6c757d',
+                color: 'white',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontSize: '0.85rem'
+              }}>Duplicar</button>
               <button onClick={() => handleWhatsAppReminder(ag)} style={{
                 padding: '8px 12px',
                 backgroundColor: '#28a745',

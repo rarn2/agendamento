@@ -9,6 +9,7 @@ const Pacientes = () => {
     id: null,
     nome: '',
     telefone: '',
+    observacoes: '',
   });
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -75,6 +76,7 @@ const Pacientes = () => {
       id: null,
       nome: '',
       telefone: '',
+      observacoes: '',
     });
   };
 
@@ -117,6 +119,14 @@ const Pacientes = () => {
           required
           style={{ padding: '10px', borderRadius: '4px', border: '1px solid var(--cor-borda)' }}
         />
+        <textarea
+          name="observacoes"
+          placeholder="Observações sobre o paciente..."
+          value={form.observacoes}
+          onChange={handleChange}
+          rows="4"
+          style={{ padding: '10px', borderRadius: '4px', border: '1px solid var(--cor-borda)' }}
+        ></textarea>
         <button type="submit" style={{
           padding: '10px 20px',
           backgroundColor: 'var(--cor-primaria)',
@@ -180,6 +190,7 @@ const Pacientes = () => {
             <div>
               <h3 style={{ margin: '0 0 5px 0', color: 'var(--cor-primaria)' }}>{paciente.nome}</h3>
               <p style={{ margin: '0', fontSize: '0.9rem', color: '#666' }}>{paciente.telefone}</p>
+              {paciente.observacoes && <p style={{ margin: '5px 0 0 0', fontSize: '0.8rem', color: '#888', fontStyle: 'italic' }}>Obs: {paciente.observacoes.substring(0, 50)}...</p>}
             </div>
             <div style={{ marginTop: '15px', display: 'flex', gap: '10px' }}>
               <button onClick={() => handleEdit(paciente)} style={{

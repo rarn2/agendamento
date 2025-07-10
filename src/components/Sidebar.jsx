@@ -85,6 +85,32 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           <span role="img" aria-label="agendamentos" style={{ color: 'white' }}>&#128197;</span> {/* Calendário */}
           <span className="sidebar-text-visible">Agendamentos</span>
         </Link>
+        <Link to="/calendario" onClick={toggleSidebar} style={{
+          padding: '15px 25px',
+          textDecoration: 'none',
+          fontSize: '20px',
+          color: 'white',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '15px',
+          whiteSpace: 'nowrap',
+        }}>
+          <span role="img" aria-label="calendario" style={{ color: 'white' }}>&#128197;</span> {/* Calendário */}
+          <span className="sidebar-text-visible">Calendário</span>
+        </Link>
+        <Link to="/relatorios" onClick={toggleSidebar} style={{
+          padding: '15px 25px',
+          textDecoration: 'none',
+          fontSize: '20px',
+          color: 'white',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '15px',
+          whiteSpace: 'nowrap',
+        }}>
+          <span role="img" aria-label="relatorios" style={{ color: 'white' }}>&#128202;</span> {/* Gráfico de barras */}
+          <span className="sidebar-text-visible">Relatórios</span>
+        </Link>
         <Link to="/configuracoes" onClick={toggleSidebar} style={{
           padding: '15px 25px',
           textDecoration: 'none',

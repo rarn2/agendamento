@@ -8,7 +8,9 @@ import Dashboard from './pages/Dashboard';
 import Pacientes from './pages/Pacientes';
 import Locais from './pages/Locais';
 import Agendamentos from './pages/Agendamentos';
+import Calendario from './pages/Calendario';
 import Configuracoes from './pages/Configuracoes';
+import Relatorios from './pages/Relatorios';
 import Sidebar from './components/Sidebar';
 
 // Componente de Layout básico
@@ -69,6 +71,8 @@ function App() {
           <Route path="/pacientes" element={<Pacientes />} />
           <Route path="/locais" element={<Locais />} />
           <Route path="/agendamentos" element={<Agendamentos />} />
+          <Route path="/calendario" element={<Calendario />} />
+          <Route path="/relatorios" element={<Relatorios />} />
           <Route path="/configuracoes" element={<Configuracoes />} />
         </Routes>
       </Layout>
