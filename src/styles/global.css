@@ -1,0 +1,31 @@
+:root {
+  --cor-primaria: #556B2F; /* Verde Musgo Escuro */
+  --cor-secundaria: #8FBC8F; /* Verde Mar Claro */
+  --cor-fundo: #F5F5DC; /* Bege */
+  --cor-texto: #333333;
+  --cor-sucesso: #4CAF50;
+  --cor-aviso: #FFC107;
+  --cor-erro: #F44336;
+  --cor-borda: #DCDCDC;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+/* Estilos para o menu sanduíche e sidebar */
+@media (max-width: 768px) {
+  .sidebar-text {
+    display: none; /* Oculta o texto em telas menores */
+  }
+
+  /* Ajusta o padding do main content quando o sidebar está aberto */
+  body.sidebar-open main {
+    margin-left: 250px; /* Mesma largura do sidebar */
+  }
+}
