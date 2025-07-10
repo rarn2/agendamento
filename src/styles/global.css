@@ -20,9 +20,7 @@ body {
 
 /* Estilos para o menu sanduíche e sidebar */
 @media (max-width: 768px) {
-  .sidebar-text {
-    display: none; /* Oculta o texto em telas menores */
-  }
+  
 
   /* Ajusta o padding do main content quando o sidebar está aberto */
   body.sidebar-open main {

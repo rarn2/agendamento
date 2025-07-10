@@ -43,8 +43,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           gap: '15px',
           whiteSpace: 'nowrap',
         }}>
-          <span role="img" aria-label="dashboard">&#x1F4CA;</span> {/* Gráfico de barras */}
-          <span className="sidebar-text">Dashboard</span>
+          <span role="img" aria-label="dashboard" style={{ color: 'white' }}>&#9776;</span> {/* Menu Sanduíche (genérico para dashboard) */}
+          <span className="sidebar-text-visible">Dashboard</span>
         </Link>
         <Link to="/pacientes" onClick={toggleSidebar} style={{
           padding: '15px 25px',
@@ -56,8 +56,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           gap: '15px',
           whiteSpace: 'nowrap',
         }}>
-          <span role="img" aria-label="pacientes">&#x1F464;</span> {/* Silhueta de pessoa */}
-          <span className="sidebar-text">Pacientes</span>
+          <span role="img" aria-label="pacientes" style={{ color: 'white' }}>&#128100;</span> {/* Silhueta de pessoa */}
+          <span className="sidebar-text-visible">Pacientes</span>
         </Link>
         <Link to="/locais" onClick={toggleSidebar} style={{
           padding: '15px 25px',
@@ -69,8 +69,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           gap: '15px',
           whiteSpace: 'nowrap',
         }}>
-          <span role="img" aria-label="locais">&#x1F4CD;</span> {/* Alfinete de mapa */}
-          <span className="sidebar-text">Locais</span>
+          <span role="img" aria-label="locais" style={{ color: 'white' }}>&#128205;</span> {/* Alfinete de mapa */}
+          <span className="sidebar-text-visible">Locais</span>
         </Link>
         <Link to="/agendamentos" onClick={toggleSidebar} style={{
           padding: '15px 25px',
@@ -82,8 +82,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           gap: '15px',
           whiteSpace: 'nowrap',
         }}>
-          <span role="img" aria-label="agendamentos">&#x1F4C5;</span> {/* Calendário */}
-          <span className="sidebar-text">Agendamentos</span>
+          <span role="img" aria-label="agendamentos" style={{ color: 'white' }}>&#128197;</span> {/* Calendário */}
+          <span className="sidebar-text-visible">Agendamentos</span>
         </Link>
         <Link to="/configuracoes" onClick={toggleSidebar} style={{
           padding: '15px 25px',
@@ -95,8 +95,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           gap: '15px',
           whiteSpace: 'nowrap',
         }}>
-          <span role="img" aria-label="configuracoes">&#x2699;&#xFE0F;</span> {/* Engrenagem */}
-          <span className="sidebar-text">Configurações</span>
+          <span role="img" aria-label="configuracoes" style={{ color: 'white' }}>&#9881;</span> {/* Engrenagem */}
+          <span className="sidebar-text-visible">Configurações</span>
         </Link>
       </div>
     </div>

@@ -10,6 +10,7 @@ const Pacientes = () => {
     nome: '',
     telefone: '',
   });
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     carregarPacientes();
@@ -38,7 +39,7 @@ const Pacientes = () => {
     } else if (valor.length > 6) {
       // (00) 0000-0000
       return `(${valor.substring(0, 2)}) ${valor.substring(2, 6)}-${valor.substring(6, 10)}`;
-    } else if (valor.length > 0) {
+    } else if (valor.length > 2) {
       // (00) 0000
       return `(${valor.substring(0, 2)}) ${valor.substring(2, valor.length)}`;
     } else if (valor.length > 0) {
@@ -76,6 +77,11 @@ const Pacientes = () => {
       telefone: '',
     });
   };
+
+  const filteredPacientes = pacientes.filter(paciente =>
+    paciente.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    paciente.telefone.replace(/\D/g, '').includes(searchTerm.replace(/\D/g, ''))
+  );
 
   return (
     <div style={{ padding: '20px' }}>
@@ -138,13 +144,29 @@ const Pacientes = () => {
         )}
       </form>
 
+      <input
+        type="text"
+        placeholder="Buscar paciente por nome ou telefone..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{
+          padding: '10px',
+          borderRadius: '4px',
+          border: '1px solid var(--cor-borda)',
+          width: 'calc(100% - 40px)',
+          maxWidth: '500px',
+          margin: '20px auto 0 auto',
+          display: 'block'
+        }}
+      />
+
       <div style={{
         marginTop: '30px',
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
         gap: '20px'
       }}>
-        {pacientes.map(paciente => (
+        {filteredPacientes.map(paciente => (
           <div key={paciente.id} style={{
             backgroundColor: 'white',
             padding: '15px',

@@ -180,11 +180,19 @@ const Agendamentos = () => {
     const dataFormatada = data.toLocaleDateString('pt-BR');
     const horaFormatada = data.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
+    let localInfo = agendamento.local?.nome || 'Local Desconhecido';
+    if (agendamento.local?.endereco) {
+      localInfo += ` - ${agendamento.local.endereco}`;
+    }
+    if (agendamento.local?.linkMapa) {
+      localInfo += ` (Link: ${agendamento.local.linkMapa})`;
+    }
+
     let mensagemFinal = mensagemTemplate
       .replace(/{nome_paciente}/g, agendamento.paciente.nome)
       .replace(/{data}/g, dataFormatada)
       .replace(/{hora}/g, horaFormatada)
-      .replace(/{local}/g, agendamento.local.nome);
+      .replace(/{local}/g, localInfo);
 
     const telefoneLimpo = agendamento.paciente.telefone.replace(/\D/g, '');
     const linkWhatsApp = `https://wa.me/55${telefoneLimpo}?text=${encodeURIComponent(mensagemFinal)}`;
