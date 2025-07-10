@@ -170,7 +170,7 @@ const Agendamentos = () => {
     setSearchTermPaciente(agendamento.paciente.nome);
     setPacienteSelecionadoNome(agendamento.paciente.nome);
     setSugestoesPacientes([]);
-    carregarDados(); // Recarrega para mostrar o status do agendamento original
+    // carregarDados(); // REMOVIDO: A atualização da lista será feita pelo useEffect no filter ou por um novo agendamento
     toast.info(`Agendamento de ${agendamento.paciente.nome} marcado para reagendamento. Preencha a nova data e hora.`);
   };
 
@@ -185,7 +185,12 @@ const Agendamentos = () => {
       localInfo += ` - ${agendamento.local.endereco}`;
     }
     if (agendamento.local?.linkMapa) {
-      localInfo += ` (Link: ${agendamento.local.linkMapa})`;
+      let mapLink = agendamento.local.linkMapa;
+      // Garante que o link tenha um protocolo
+      if (!mapLink.startsWith('http://') && !mapLink.startsWith('https://')) {
+        mapLink = `https://${mapLink}`;
+      }
+      localInfo += ` (Link: ${mapLink})`;
     }
 
     let mensagemFinal = mensagemTemplate
